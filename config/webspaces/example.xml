@@ -4,12 +4,13 @@
           xsi:schemaLocation="http://schemas.sulu.io/webspace/webspace http://schemas.sulu.io/webspace/webspace-1.1.xsd">
     <!-- See: http://docs.sulu.io/en/latest/book/webspaces.html how to configure your webspace-->
 
-    <name>example.com</name>
+    <name>my_sulu.com</name>
     <key>example</key>
 
     <localizations>
         <!-- See: http://docs.sulu.io/en/latest/book/localization.html how to add new localizations -->
         <localization language="en" default="true"/>
+        <localization language="uk"/>
     </localizations>
 
     <default-templates>
@@ -28,7 +29,7 @@
             <context key="main">
                 <meta>
                     <title lang="en">Main Navigation</title>
-                    <title lang="de">Hauptnavigation</title>
+                    <title lang="uk">Головна навігація</title>
                 </meta>
             </context>
         </contexts>
@@ -57,7 +58,8 @@
                 </environment>
                 <environment type="dev">
                     <urls>
-                        <url language="en">{host}</url>
+                        <url language="en">{host}/{localization}</url>
+                        <url language="uk">{host}/{localization}</url>
                     </urls>
                 </environment>
             </environments>
