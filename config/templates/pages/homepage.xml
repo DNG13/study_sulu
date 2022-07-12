@@ -42,5 +42,136 @@
                 <title lang="uk">Стаття</title>
             </meta>
         </property>
+
+        <section name="About">
+            <meta>
+                <title lang="en">About</title>
+                <title lang="uk">Про нас</title>
+            </meta>
+            <properties>
+                <block name="aboutItems" default-type="aboutItem" minOccurs="0">
+                    <meta>
+                        <title lang="en">Items</title>
+                        <title lang="uk">Елементи</title>
+                    </meta>
+                    <types>
+                        <type name="aboutItem">
+                            <meta>
+                                <title lang="en">Item</title>
+                                <title lang="uk">Елемент</title>
+                            </meta>
+                            <properties>
+                                <property name="icon" type="single_select">
+                                    <meta>
+                                        <title lang="en">Icon</title>
+                                        <title lang="uk">Іконка</title>
+                                    </meta>
+                                    <params>
+                                        <param name="default_value" value="tree"/>
+                                        <param name="values" type="collection">
+                                            <param name="tree">
+                                                <meta>
+                                                    <title lang="en">Tree</title>
+                                                    <title lang="uk">Дерево</title>
+                                                </meta>
+                                            </param>
+                                            <param name="building">
+                                                <meta>
+                                                    <title lang="en">Building</title>
+                                                    <title lang="uk">Будівля</title>
+                                                </meta>
+                                            </param>
+                                            <param name="map">
+                                                <meta>
+                                                    <title lang="en">Map</title>
+                                                    <title lang="uk">Мапа</title>
+                                                </meta>
+                                            </param>
+                                        </param>
+                                    </params>
+                                </property>
+                                <property name="image" type="media_selection" minOccurs="1" mandatory="true">
+                                    <meta>
+                                        <title lang="en">Image</title>
+                                        <title lang="uk">Зображення</title>
+                                    </meta>
+                                </property>
+                                <property name="itemHeadline" type="text_line" mandatory="true">
+                                    <meta>
+                                        <title lang="en">Headline</title>
+                                        <title lang="uk">Заголовок</title>
+                                    </meta>
+                                    <params>
+                                        <param name="headline" value="true"/>
+                                    </params>
+                                </property>
+                                <property name="itemDescription" type="text_editor" mandatory="true">
+                                    <meta>
+                                        <title lang="en">Description</title>
+                                        <title lang="uk">Опис</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <section name="Services">
+            <meta>
+                <title lang="en">Services</title>
+                <title lang="uk">Сервіси</title>
+            </meta>
+            <properties>
+                <property name="servicesTitle" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Title</title>
+                        <title lang="uk">Заголовок</title>
+                    </meta>
+                </property>
+                <property name="servicesSubtitle" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Subtitle</title>
+                        <title lang="uk">Підзаголовок</title>
+                    </meta>
+                </property>
+                <property name="servicesBntText" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">Button text</title>
+                        <title lang="uk">Заголовок кнопки</title>
+                    </meta>
+                </property>
+                <property name="servicesPageSelection" type="single_page_selection" colspan="6">
+                    <meta>
+                        <title lang="en">Page selection url</title>
+                        <title lang="uk">Вибір сторінки url</title>
+                    </meta>
+                </property>
+                <block name="servicesItems" default-type="servicesItem" minOccurs="0">
+                    <meta>
+                        <title lang="en">Items</title>
+                        <title lang="uk">Елементи</title>
+                    </meta>
+                    <types>
+                        <type name="servicesItem">
+                            <meta>
+                                <title lang="en">Item</title>
+                                <title lang="uk">Елемент</title>
+                            </meta>
+                            <properties>
+                                <property name="text" type="text_line" mandatory="true">
+                                    <meta>
+                                        <title lang="en">Text</title>
+                                        <title lang="uk">Текст</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+
+        </section>
     </properties>
 </template>

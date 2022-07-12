@@ -4,4 +4,42 @@
     <h1>{{ content.title }}</h1>
 
     {{ content.article|raw }}
+    {% if content.aboutItems is not empty %}
+        <section id="about">
+            <div>
+                {% for aboutItem in content.aboutItems %}
+                    <div>
+                        <div>
+                            <img src={{ aboutItem.image[0].thumbnails['300x200'] }} alt="{{ aboutItem.image[0].title }}">
+                        </div>
+                        <div>
+                            <h3>
+                                {{ aboutItem.itemHeadline }}
+                            </h3>
+                            <p>
+                                {{ aboutItem.icon }}
+                            </p>
+                        </div>
+                        <div>
+                            <p>{{ aboutItem.itemDescription|raw }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+    {% if content.servicesItems is not empty %}
+        <div>
+            <h2>{{ content.servicesTitle }}</h2>
+            <p>{{ content.servicesSubtitle }}</p>
+            <div>
+                <a class="btn btn-primary" role="button" href="{{ content.servicesPageSelection }}">{{ content.servicesBntText }}</a>
+            </div>
+        </div>
+        <ul></ul>
+            {% for servicesItem in content.servicesItems %}
+                <li>{{ servicesItem.text }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}

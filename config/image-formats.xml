@@ -3,6 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
 
+    <format key="300x200">
+        <meta>
+            <title lang="en">Home page Image</title>
+            <title lang="uk">Зображення домашньої сторsнки</title>
+        </meta>
+
+        <scale x="300" y="200"/>
+    </format>
+
     <!-- See: http://docs.sulu.io/en/latest/book/image-formats.html how to define image-formats -->
 
     <!--
