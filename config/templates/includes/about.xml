@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<section name="about"
+         xmlns="http://schemas.sulu.io/template/template"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">About</title>
+        <title lang="uk">Про нас</title>
+    </meta>
+    <properties>
+        <block name="aboutItems" default-type="aboutItem" minOccurs="0">
+            <meta>
+                <title lang="en">Items</title>
+                <title lang="uk">Елементи</title>
+            </meta>
+            <types>
+                <type name="aboutItem">
+                    <meta>
+                        <title lang="en">Item</title>
+                        <title lang="uk">Елемент</title>
+                    </meta>
+                    <properties>
+                        <property name="icon" type="single_select">
+                            <meta>
+                                <title lang="en">Icon</title>
+                                <title lang="uk">Іконка</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="tree"/>
+                                <param name="values" type="collection">
+                                    <param name="tree">
+                                        <meta>
+                                            <title lang="en">Tree</title>
+                                            <title lang="uk">Дерево</title>
+                                        </meta>
+                                    </param>
+                                    <param name="building">
+                                        <meta>
+                                            <title lang="en">Building</title>
+                                            <title lang="uk">Будівля</title>
+                                        </meta>
+                                    </param>
+                                    <param name="map">
+                                        <meta>
+                                            <title lang="en">Map</title>
+                                            <title lang="uk">Мапа</title>
+                                        </meta>
+                                    </param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="image" type="media_selection" minOccurs="1" mandatory="true">
+                            <meta>
+                                <title lang="en">Image</title>
+                                <title lang="uk">Зображення</title>
+                            </meta>
+                        </property>
+                        <property name="itemHeadline" type="text_line" mandatory="true">
+                            <meta>
+                                <title lang="en">Headline</title>
+                                <title lang="uk">Заголовок</title>
+                            </meta>
+                            <params>
+                                <param name="headline" value="true"/>
+                            </params>
+                        </property>
+                        <property name="itemDescription" type="text_editor" mandatory="true">
+                            <meta>
+                                <title lang="en">Description</title>
+                                <title lang="uk">Опис</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</section>

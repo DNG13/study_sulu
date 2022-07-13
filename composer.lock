@@ -453,16 +453,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.13.2",
+            "version": "1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "5b668aef16090008790395c02c893b1ba13f7e08"
+                "reference": "648b0343343565c4a056bfc8392201385e8d89f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/5b668aef16090008790395c02c893b1ba13f7e08",
-                "reference": "5b668aef16090008790395c02c893b1ba13f7e08",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/648b0343343565c4a056bfc8392201385e8d89f0",
+                "reference": "648b0343343565c4a056bfc8392201385e8d89f0",
                 "shasum": ""
             },
             "require": {
@@ -474,9 +474,10 @@
             "require-dev": {
                 "doctrine/cache": "^1.11 || ^2.0",
                 "doctrine/coding-standard": "^6.0 || ^8.1",
-                "phpstan/phpstan": "^0.12.20",
+                "phpstan/phpstan": "^1.4.10 || ^1.8.0",
                 "phpunit/phpunit": "^7.5 || ^8.0 || ^9.1.5",
-                "symfony/cache": "^4.4 || ^5.2"
+                "symfony/cache": "^4.4 || ^5.2",
+                "vimeo/psalm": "^4.10"
             },
             "type": "library",
             "autoload": {
@@ -519,9 +520,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
+                "source": "https://github.com/doctrine/annotations/tree/1.13.3"
             },
-            "time": "2021-08-05T19:00:23+00:00"
+            "time": "2022-07-02T10:48:51+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -2105,16 +2106,16 @@
         },
         {
             "name": "friendsofsymfony/http-cache",
-            "version": "2.13.0",
+            "version": "2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSHttpCache.git",
-                "reference": "8e46af3721e032a87b2b27782efa173ecda3cc1a"
+                "reference": "b20ba13dec0b3d6c0b2ecf692f0b6a6eed6d89fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSHttpCache/zipball/8e46af3721e032a87b2b27782efa173ecda3cc1a",
-                "reference": "8e46af3721e032a87b2b27782efa173ecda3cc1a",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSHttpCache/zipball/b20ba13dec0b3d6c0b2ecf692f0b6a6eed6d89fd",
+                "reference": "b20ba13dec0b3d6c0b2ecf692f0b6a6eed6d89fd",
                 "shasum": ""
             },
             "require": {
@@ -2184,9 +2185,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FriendsOfSymfony/FOSHttpCache/issues",
-                "source": "https://github.com/FriendsOfSymfony/FOSHttpCache/tree/2.13.0"
+                "source": "https://github.com/FriendsOfSymfony/FOSHttpCache/tree/2.14.1"
             },
-            "time": "2022-01-25T12:27:12+00:00"
+            "time": "2022-07-07T06:13:40+00:00"
         },
         {
             "name": "friendsofsymfony/http-cache-bundle",
@@ -2649,16 +2650,16 @@
         },
         {
             "name": "handcraftedinthealps/goodby-csv",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/handcraftedinthealps/goodby-csv.git",
-                "reference": "ff31e558a87f310d94900ab5e8285002d5482835"
+                "reference": "5a520c76c6d945abc06173954f0ade67cf2abc30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/handcraftedinthealps/goodby-csv/zipball/ff31e558a87f310d94900ab5e8285002d5482835",
-                "reference": "ff31e558a87f310d94900ab5e8285002d5482835",
+                "url": "https://api.github.com/repos/handcraftedinthealps/goodby-csv/zipball/5a520c76c6d945abc06173954f0ade67cf2abc30",
+                "reference": "5a520c76c6d945abc06173954f0ade67cf2abc30",
                 "shasum": ""
             },
             "require": {
@@ -2712,9 +2713,9 @@
                 "import"
             ],
             "support": {
-                "source": "https://github.com/handcraftedinthealps/goodby-csv/tree/1.4.0"
+                "source": "https://github.com/handcraftedinthealps/goodby-csv/tree/1.4.1"
             },
-            "time": "2021-11-26T21:56:47+00:00"
+            "time": "2022-07-08T11:57:03+00:00"
         },
         {
             "name": "handcraftedinthealps/rest-routing-bundle",
@@ -4045,16 +4046,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.14.2",
+            "version": "1.14.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "c8d48852fbc052454af42f6de27635ddd916b959"
+                "reference": "31d8ee46d0215108df16a8527c7438e96a4d7735"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/c8d48852fbc052454af42f6de27635ddd916b959",
-                "reference": "c8d48852fbc052454af42f6de27635ddd916b959",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/31d8ee46d0215108df16a8527c7438e96a4d7735",
+                "reference": "31d8ee46d0215108df16a8527c7438e96a4d7735",
                 "shasum": ""
             },
             "require": {
@@ -4106,9 +4107,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.14.2"
+                "source": "https://github.com/php-http/discovery/tree/1.14.3"
             },
-            "time": "2022-05-25T07:26:05+00:00"
+            "time": "2022-07-11T14:04:40+00:00"
         },
         {
             "name": "php-http/httplug",
