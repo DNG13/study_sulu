@@ -6,28 +6,19 @@
     <format key="300x200">
         <meta>
             <title lang="en">Home page Image</title>
-            <title lang="uk">Зображення домашньої сторsнки</title>
+            <title lang="uk">Зображення домашньої сторінки</title>
         </meta>
 
         <scale x="300" y="200"/>
     </format>
 
-    <!-- See: http://docs.sulu.io/en/latest/book/image-formats.html how to define image-formats -->
-
-    <!--
-    <format key="300x">
+    <format key="1921x983">
         <meta>
-            <title lang="en">Example Image</title>
-            <title lang="de">Beispielbild</title>
+            <title lang="en">Home page process Image</title>
+            <title lang="uk">Зображення процусів домашньої сторінки</title>
         </meta>
 
-        <scale x="300"/>
+        <scale x="1921" y="983"/>
     </format>
-    -->
 
-    <!--
-    Render an image from the media_selection in a specific format the following way:
-
-    <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
-    -->
 </formats>

@@ -4,27 +4,63 @@
     <h1>{{ content.title }}</h1>
 
     {{ content.article|raw }}
+
+    <h2>{{ content.linkListTitle }}</h2>
+    <p>{{ content.linkListSubtitle }}</p>
+    <ul>
+        {% for linkItem in content.linkListItems %}
+            <li>
+                <a class="btn btn-primary m-1"
+                   role="button"
+                   href="{{ linkItem.linkItemUrl }}"
+                   target="_blank">
+                    {{ linkItem.linkItemDisplay }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    {#    {% dump(content) %} #}
     {% if content.aboutItems is not empty %}
         <section id="about">
-            <div>
-                {% for aboutItem in content.aboutItems %}
-                    <div>
-                        <div>
-                            <img src={{ aboutItem.image[0].thumbnails['300x200'] }} alt="{{ aboutItem.image[0].title }}">
+            <div class="container">
+                <div class="row">
+                    {% for aboutItem in content.aboutItems %}
+                        <div class="col-lg-4">
+                            <div>
+                                <img src={{ aboutItem.image[0].thumbnails['300x200'] }} alt="{{ aboutItem.image[0].title }}">
+                            </div>
+                            <div>
+                                <h3>
+                                    {{ aboutItem.itemHeadline }}
+                                </h3>
+                                <p>
+                                    {{ aboutItem.icon }}
+                                </p>
+                            </div>
+                            <div>
+                                <p>{{ aboutItem.itemDescription|raw }}</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3>
-                                {{ aboutItem.itemHeadline }}
-                            </h3>
-                            <p>
-                                {{ aboutItem.icon }}
-                            </p>
-                        </div>
-                        <div>
-                            <p>{{ aboutItem.itemDescription|raw }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    {% if content.processSubtitle is not empty and content.processTitle is not empty %}
+        {% set source = content.processImage[0].thumbnails['1921x983'] %}
+        <section id="process-section" style="background-image: url({{ source }})">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h6 class="uppercase">{{ content.processSubtitle }}</h6>
+                            <div class="m-2">
+                                <h2>{{ content.processTitle }}</h2>
+                            </div>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
         </section>
     {% endif %}
@@ -33,10 +69,14 @@
             <h2>{{ content.servicesTitle }}</h2>
             <p>{{ content.servicesSubtitle }}</p>
             <div>
-                <a class="btn btn-primary" role="button" href="{{ content.servicesPageSelection }}">{{ content.servicesBntText }}</a>
+                <a class="btn btn-primary"
+                   role="button"
+                   href="{{ content.servicesPageSelection }}">
+                    {{ content.servicesBntText }}
+                </a>
             </div>
         </div>
-        <ul></ul>
+        <ul>
             {% for servicesItem in content.servicesItems %}
                 <li>{{ servicesItem.text }}</li>
             {% endfor %}
