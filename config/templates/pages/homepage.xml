@@ -120,6 +120,92 @@
             </properties>
         </section>
 
+        <section name="car-section">
+            <meta>
+                <title lang="en">Car section</title>
+                <title lang="uk">Секція машин</title>
+            </meta>
+            <properties>
+                <block name="carItems" default-type="carItem" minOccurs="0">
+                    <meta>
+                        <title lang="en">Items</title>
+                        <title lang="uk">Елементи</title>
+                    </meta>
+                    <types>
+                        <type name="carItem">
+                            <meta>
+                                <title lang="en">Item</title>
+                                <title lang="uk">Елемент</title>
+                            </meta>
+                            <properties>
+                                <property name="carIcon" type="single_select" colspan="6">
+                                    <meta>
+                                        <title lang="en">Icon</title>
+                                        <title lang="uk">Іконка</title>
+                                    </meta>
+                                    <params>
+                                        <param name="default_value" value="search"/>
+                                        <param name="values" type="collection">
+                                            <param name="search">
+                                                <meta>
+                                                    <title lang="en">Search</title>
+                                                    <title lang="uk">Пошук</title>
+                                                </meta>
+                                            </param>
+                                            <param name="user">
+                                                <meta>
+                                                    <title lang="en">User</title>
+                                                    <title lang="uk">user</title>
+                                                </meta>
+                                            </param>
+                                            <param name="alarm-clock">
+                                                <meta>
+                                                    <title lang="en">Alarm-clock</title>
+                                                    <title lang="uk">Alarm-clock</title>
+                                                </meta>
+                                            </param>
+                                        </param>
+                                    </params>
+                                </property>
+                                <property name="carTitle" type="text_line" colspan="6">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="uk">Заголовок</title>
+                                    </meta>
+                                </property>
+                                <property name="carDescription" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Description</title>
+                                        <title lang="uk">Опис</title>
+                                    </meta>
+                                    <params>
+                                        <param name="table" value="false"/>
+                                        <param name="link" value="true"/>
+                                        <!-- CKEditor Parameters examples: -->
+                                        <param name="extra_allowed_content"
+                                               value="img(*)[*]; span(*)[*]; div(*)[*]; iframe(*)[*]; script(*)[*]"/>
+                                        <param name="ui_color" value="#ffcc00"/>
+                                    </params>
+                                </property>
+                                <property name="carBtnText" type="text_line" colspan="6">
+                                    <meta>
+                                        <title lang="en">Btn Text</title>
+                                        <title lang="uk">Btn Text</title>
+                                    </meta>
+                                </property>
+                                <property name="carBtnLink" type="single_page_selection" colspan="6">
+                                    <meta>
+                                        <title lang="en">Btn Link</title>
+                                        <title lang="uk">Btn Link</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
         <xi:include href="../includes/about.xml"/>
 
         <section name="Services">

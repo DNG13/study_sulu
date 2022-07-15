@@ -19,7 +19,7 @@
             </li>
         {% endfor %}
     </ul>
-    {#    {% dump(content) %} #}
+
     {% if content.aboutItems is not empty %}
         <section id="about">
             <div class="container">
@@ -34,7 +34,7 @@
                                     {{ aboutItem.itemHeadline }}
                                 </h3>
                                 <p>
-                                    {{ aboutItem.icon }}
+                                    <i class="fa-solid fa-{{ aboutItem.icon }}"></i>
                                 </p>
                             </div>
                             <div>
@@ -69,9 +69,10 @@
             <h2>{{ content.servicesTitle }}</h2>
             <p>{{ content.servicesSubtitle }}</p>
             <div>
+                {% set target = sulu_content_load(content.servicesPageSelection).content.url %}
                 <a class="btn btn-primary"
                    role="button"
-                   href="{{ content.servicesPageSelection }}">
+                   href="/{{ app.request.locale }}{{ target }}">
                     {{ content.servicesBntText }}
                 </a>
             </div>
@@ -82,4 +83,44 @@
             {% endfor %}
         </ul>
     {% endif %}
+
+    {% if content.carItems is not empty %}
+        <section id="car-section">
+            <div class="container">
+                <div class="row">
+                    {% for carItem in content.carItems %}
+                        <div class="col-lg-4">
+                            <div>
+                                <div class="text-center">
+                                    <div class="items-body">
+                                        <div class="title-body">
+                                            <h5>
+                                                <i class="fa-solid fa-{{ carItem.carIcon }}"></i>
+                                                {{ carItem.carTitle }}
+                                            </h5>
+                                        </div>
+                                        <div class="padding-around">
+                                            {{ carItem.carDescription|raw }}
+                                        </div>
+                                        <div>
+
+                                            {% set target = sulu_content_load(carItem.carBtnLink).content.url %}
+                                            <a class="btn btn-secondary m-1"
+                                               role="button"
+                                               href="/{{ app.request.locale }}{{ target }}"
+                                               target="_blank">
+                                                {{ carItem.carBtnText }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+{#    {% dump(content) %}#}
 {% endblock %}
