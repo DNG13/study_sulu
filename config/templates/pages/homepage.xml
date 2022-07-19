@@ -44,6 +44,21 @@
             </meta>
         </property>
 
+        <section name="organization">
+            <meta>
+                <title lang="en">Organization</title>
+                <title lang="uk">Organization</title>
+            </meta>
+            <properties>
+                <property name="organization" type="contact_account_selection">
+                    <meta>
+                        <title lang="en">Organization</title>
+                        <title lang="uk">Organization</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
         <section name="linkList">
             <meta>
                 <title lang="en">Link List</title>

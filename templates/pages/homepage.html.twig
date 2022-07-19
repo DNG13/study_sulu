@@ -19,7 +19,21 @@
             </li>
         {% endfor %}
     </ul>
-
+    {% if content.organization is defined and content.organization is not empty %}
+        {% set organization = content.organization[0] %}
+        <ul>
+            <li>
+                <a href="mailto:{{ organization.mainEmail }}">
+                    {{ organization.mainEmail }}
+                </a>
+            </li>
+            <li>
+                <a href="tel:{{ organization.mainPhone }}">
+                    {{ organization.mainPhone }}
+                </a>
+            </li>
+        </ul>
+    {% endif %}
     {% if content.aboutItems is not empty %}
         <section id="about">
             <div class="container">
@@ -121,6 +135,4 @@
             </div>
         </section>
     {% endif %}
-
-{#    {% dump(content) %}#}
 {% endblock %}
