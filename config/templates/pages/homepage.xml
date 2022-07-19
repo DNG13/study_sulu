@@ -14,8 +14,18 @@
         <title lang="en">Homepage</title>
         <title lang="uk">Домашня сторінка</title>
     </meta>
-
     <properties>
+        <block name="blocks" default-type="cta" minOccurs="0">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="uk">Content</title>
+            </meta>
+            <types>
+                <!-- @see https://docs.sulu.io/en/2.4/book/templates.html#including-other-templates -->
+                <xi:include href="../includes/blocks.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/*)"/>
+            </types>
+        </block>
         <property name="title" type="text_line" mandatory="true">
             <meta>
                 <title lang="en">Title</title>

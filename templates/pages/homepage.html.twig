@@ -19,6 +19,7 @@
             </li>
         {% endfor %}
     </ul>
+    {% include 'includes/blocks.html.twig' %}
     {% if content.organization is defined and content.organization is not empty %}
         {% set organization = content.organization[0] %}
         <ul>
