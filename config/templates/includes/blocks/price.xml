@@ -1,0 +1,102 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="price">
+        <!-- @see https://docs.sulu.io/en/2.4/reference/content-types/block.html -->
+
+        <types>
+            <type name="price">
+                <meta>
+                    <title lang="en">Price</title>
+                    <title lang="uk">Price</title>
+                </meta>
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Заголовок</title>
+                        </meta>
+                        <params>
+                            <param name="title" value="true"/>
+                        </params>
+                    </property>
+                    <block name="priceItems" default-type="priceItem" minOccurs="0">
+                        <meta>
+                            <title lang="en">Items</title>
+                            <title lang="uk">Елементи</title>
+                        </meta>
+                        <types>
+                            <type name="priceItem">
+                                <meta>
+                                    <title lang="en">Item</title>
+                                    <title lang="uk">Елемент</title>
+                                </meta>
+                                <properties>
+                                    <property name="title" type="text_line" colspan="6">
+                                        <meta>
+                                            <title lang="en">Title</title>
+                                            <title lang="uk">Заголовок</title>
+                                        </meta>
+                                        <params>
+                                            <param name="title" value="true"/>
+                                        </params>
+                                    </property>
+                                    <property name="isHighlight" type="checkbox" colspan="2">
+                                        <meta>
+                                            <title lang="en">Highlight</title>
+                                            <title lang="uk">Highlight</title>
+                                        </meta>
+                                        <params>
+                                            <param name="type" value="toggler"/>
+                                            <param name="default_value" value="true"/>
+                                        </params>
+                                    </property>
+                                    <property name="price" type="text_line" colspan="4">
+                                        <meta>
+                                            <title lang="en">Price</title>
+                                            <title lang="uk">Price</title>
+                                        </meta>
+                                    </property>
+                                    <block name="featuresItems" default-type="featuresItem" minOccurs="0">
+                                        <meta>
+                                            <title lang="en">Features</title>
+                                            <title lang="uk">Features</title>
+                                        </meta>
+                                        <types>
+                                            <type name="featuresItem">
+                                                <meta>
+                                                    <title lang="en">Feature</title>
+                                                    <title lang="uk">Feature</title>
+                                                </meta>
+                                                <properties>
+                                                    <property name="feature" type="text_line">
+                                                        <meta>
+                                                            <title lang="en">Feature</title>
+                                                            <title lang="uk">Feature</title>
+                                                        </meta>
+                                                    </property>
+                                                </properties>
+                                            </type>
+                                        </types>
+                                    </block>
+                                    <property name="btnText" type="text_line" colspan="6">
+                                        <meta>
+                                            <title lang="en">Btn Text</title>
+                                            <title lang="uk">Btn Text</title>
+                                        </meta>
+                                    </property>
+                                    <property name="btnLink" type="single_page_selection" colspan="6">
+                                        <meta>
+                                            <title lang="en">Btn Link</title>
+                                            <title lang="uk">Btn Link</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+                        </types>
+                    </block>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

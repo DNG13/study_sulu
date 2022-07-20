@@ -5,6 +5,8 @@
 
     {{ content.article|raw }}
 
+    {% include 'includes/blocks.html.twig' %}
+
     <h2>{{ content.linkListTitle }}</h2>
     <p>{{ content.linkListSubtitle }}</p>
     <ul>
@@ -19,7 +21,7 @@
             </li>
         {% endfor %}
     </ul>
-    {% include 'includes/blocks.html.twig' %}
+
     {% if content.organization is defined and content.organization is not empty %}
         {% set organization = content.organization[0] %}
         <ul>
@@ -35,6 +37,7 @@
             </li>
         </ul>
     {% endif %}
+
     {% if content.aboutItems is not empty %}
         <section id="about">
             <div class="container">
@@ -84,12 +87,11 @@
             <h2>{{ content.servicesTitle }}</h2>
             <p>{{ content.servicesSubtitle }}</p>
             <div>
-                {% set target = sulu_content_load(content.servicesPageSelection).content.url %}
-                <a class="btn btn-primary"
-                   role="button"
-                   href="/{{ app.request.locale }}{{ target }}">
+                <suli-link class="btn btn-primary"
+                           role="button"
+                           href="{{ content.servicesPageSelection }}">
                     {{ content.servicesBntText }}
-                </a>
+                </suli-link>
             </div>
         </div>
         <ul>
@@ -119,13 +121,13 @@
                                         </div>
                                         <div>
 
-                                            {% set target = sulu_content_load(carItem.carBtnLink).content.url %}
-                                            <a class="btn btn-secondary m-1"
-                                               role="button"
-                                               href="/{{ app.request.locale }}{{ target }}"
-                                               target="_blank">
+                                            <sulu-link class="btn btn-secondary m-1"
+                                                       provider="page"
+                                                       role="button"
+                                                       href="{{ carItem.carBtnLink }}"
+                                                       target="_blank">
                                                 {{ carItem.carBtnText }}
-                                            </a>
+                                            </sulu-link>
                                         </div>
                                     </div>
                                 </div>

@@ -6,12 +6,12 @@
             </h3>
             {{ content.description|raw }}
             {% if (content.btnLink and content.btnText) %}
-                {% set target = sulu_content_load(content.btnLink).content.url %}
-                <a class="btn btn-primary"
-                   role="button"
-                   href="/{{ app.request.locale }}{{ target }}">
+                <sulu-link class="btn btn-primary"
+                           role="button"
+                           provider="page"
+                           href="{{ content.btnLink }}">
                     {{ content.btnText }}
-                </a>
+                </sulu-link>
             {% endif %}
         </div>
     </div>

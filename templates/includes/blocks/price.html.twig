@@ -1,0 +1,39 @@
+{% if content.priceItems is not empty %}
+    <div class="container py-4">
+        <div class="mb-4 row">
+            <div class="mb-4">
+                <hr class="solid my-5">
+                <h4> {{ content.title }}</h4>
+            </div>
+            {% for item in content.priceItems %}
+                {% set class = item.isHighlight ? ' active' : '' %}
+                <div class="col-md-4">
+                    <div class="{{ class }}">
+                        <h4>{{ item.title }}</h4>
+                    </div>
+                    <div>
+                        <span>{{ item.price }}</span>
+                    </div>
+                    <div>
+                        <ul>
+                            {% for feature in item.featuresItems %}
+                                <li>
+                                    {{ feature.feature }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div>
+                        <sulu-link class="btn btn-primary"
+                                   provider="page"
+                                   role="button"
+                                   target="_blank"
+                                   href="{{ item.btnLink }}">
+                            {{ item.btnText }}
+                        </sulu-link>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
