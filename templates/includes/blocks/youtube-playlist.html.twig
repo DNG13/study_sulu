@@ -1,0 +1,11 @@
+<h2>{{ content.title }}</h2>
+{% set videos = playlistItemsListByPlaylistId(content.playListId) %}
+{% if videos is not empty %}
+    <ul>
+        {% for item in videos %}
+            <li>
+                {{ item }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

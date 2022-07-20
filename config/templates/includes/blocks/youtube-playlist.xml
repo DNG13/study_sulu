@@ -1,0 +1,33 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="youtube-playlist">
+        <!-- @see https://docs.sulu.io/en/2.4/reference/content-types/block.html -->
+
+        <types>
+            <type name="youtube-playlist">
+                <meta>
+                    <title lang="en">Youtube playlist</title>
+                    <title lang="uk">Youtube playlist</title>
+                </meta>
+                <properties>
+                    <property name="title" type="text_line" colspan="6">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Заголовок</title>
+                        </meta>
+                        <params>
+                            <param name="title" value="true"/>
+                        </params>
+                    </property>
+                    <property name="playListId" type="text_line" colspan="6">
+                        <meta>
+                            <title lang="en">PlayList Id</title>
+                            <title lang="uk">PlayList Id</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>
