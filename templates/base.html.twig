@@ -63,6 +63,12 @@
                 </main>
 
                 <footer>
+                    {% for item in sulu_navigation_root_tree('footer') %}
+                        <li>
+                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                               title="{{ item.title }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
                     {% block footer %}
                         <p>Copyright Study Sulu {{ 'now'|date('Y') }} </p>
                     {% endblock %}
