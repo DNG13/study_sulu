@@ -45,7 +45,7 @@
                     {% for aboutItem in content.aboutItems %}
                         <div class="col-lg-4">
                             <div>
-                                <img src={{ aboutItem.image[0].thumbnails['300x200'] }} alt="{{ aboutItem.image[0].title }}">
+                                <img src={{ aboutItem.image.thumbnails['300x200'] }} alt="{{ aboutItem.image.title }}">
                             </div>
                             <div>
                                 <h3>

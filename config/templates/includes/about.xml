@@ -49,10 +49,16 @@
                                 </param>
                             </params>
                         </property>
-                        <property name="image" type="media_selection" minOccurs="1" mandatory="true">
+                        <property name="image" type="single_media_selection" mandatory="true">
                             <meta>
                                 <title lang="en">Image</title>
                                 <title lang="uk">Зображення</title>
+                                <info_text lang="en">
+                                    Only one image
+                                </info_text>
+                                <info_text lang="uk">
+                                    Лише одне зображення
+                                </info_text>
                             </meta>
                         </property>
                         <property name="itemHeadline" type="text_line" mandatory="true">
