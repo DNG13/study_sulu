@@ -1,0 +1,4 @@
+sulu_security:
+  password_policy:
+    enabled: true
+    pattern: '.{8,}'
