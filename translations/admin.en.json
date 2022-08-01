@@ -1,0 +1,13 @@
+{
+  "app": {
+    "start_date": "Start date",
+    "end_date": "End date",
+    "similar_events": "Similar events",
+    "parent_event": "Parent event",
+    "events": "Events",
+    "events_list": "Events list",
+    "event_details": "Event details",
+    "event_add_form": "Event add form",
+    "event_edit_form": "Event edit form"
+  }
+}

@@ -1,33 +1,40 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Controller\Admin;
 
-use App\Common\DoctrineListRepresentationFactory;
 use App\Entity\Event;
 use App\Repository\EventRepository;
+use FOS\RestBundle\Controller\Annotations\RouteResource;
+use FOS\RestBundle\Routing\ClassResourceInterface;
+use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
-use HandcraftedInTheAlps\RestRoutingBundle\Routing\ClassResourceInterface;
-use Sulu\Component\Rest\AbstractRestController;
+use Sulu\Component\Rest\ListBuilder\Doctrine\DoctrineListBuilderFactoryInterface;
+use Sulu\Component\Rest\ListBuilder\Metadata\FieldDescriptorFactoryInterface;
+use Sulu\Component\Rest\ListBuilder\PaginatedRepresentation;
+use Sulu\Component\Rest\RestHelperInterface;
 use Sulu\Component\Security\SecuredControllerInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Sulu\Component\Rest\AbstractRestController;
 
+/**
+ * @RouteResource("event")
+ */
 class EventController extends AbstractRestController implements ClassResourceInterface, SecuredControllerInterface
 {
-    private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
     private EventRepository $eventRepository;
 
     public function __construct(
-        DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
-        EventRepository $eventRepository,
-        ViewHandlerInterface $viewHandler,
-        ?TokenStorageInterface $tokenStorage = null
-    ) {
-        $this->doctrineListRepresentationFactory = $doctrineListRepresentationFactory;
+        EventRepository                                      $eventRepository,
+        private readonly ViewHandlerInterface                $viewHandler,
+        private readonly FieldDescriptorFactoryInterface     $fieldDescriptorFactory,
+        private readonly DoctrineListBuilderFactoryInterface $listBuilderFactory,
+        private readonly RestHelperInterface                 $restHelper,
+        ?TokenStorageInterface                               $tokenStorage = null
+    )
+    {
         $this->eventRepository = $eventRepository;
 
         parent::__construct($viewHandler, $tokenStorage);
@@ -35,11 +42,19 @@ class EventController extends AbstractRestController implements ClassResourceInt
 
     public function cgetAction(): Response
     {
-        $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
-            Event::RESOURCE_KEY
+        $fieldDescriptors = $this->fieldDescriptorFactory->getFieldDescriptors(Event::RESOURCE_KEY);
+        $listBuilder = $this->listBuilderFactory->create(Event::class);
+        $this->restHelper->initializeListBuilder($listBuilder, $fieldDescriptors);
+
+        $listRepresentation = new PaginatedRepresentation(
+            $listBuilder->execute(),
+            Event::RESOURCE_KEY,
+            $listBuilder->getCurrentPage(),
+            $listBuilder->getLimit(),
+            $listBuilder->count()
         );
 
-        return $this->handleView($this->view($listRepresentation));
+        return $this->viewHandler->handle(View::create($listRepresentation));
     }
 
     public function getAction(int $id): Response
@@ -95,5 +110,10 @@ class EventController extends AbstractRestController implements ClassResourceInt
     public function getSecurityContext(): string
     {
         return Event::SECURITY_CONTEXT;
+    }
+
+    public function getLocale(Request $request)
+    {
+        // TODO: Implement getLocale() method.
     }
 }

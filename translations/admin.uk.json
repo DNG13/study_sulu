@@ -1,0 +1,9 @@
+{
+  "app": {
+    "start_date": "Start дата",
+    "end_date": "End дата",
+    "similar_events": "Similar події",
+    "parent_event": "Parent подія",
+    "events": "Події"
+  }
+}

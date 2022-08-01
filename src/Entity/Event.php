@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Event
 {
     public const RESOURCE_KEY = 'events';
-    public const FORM_KEY = 'event_details';
     public const LIST_KEY = 'events';
     public const SECURITY_CONTEXT = 'sulu.event.events';
 
@@ -30,12 +30,12 @@ class Event
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private ?DateTimeInterface  $startDate = null;
+    private ?DateTimeInterface $startDate = null;
 
     /**
      * @ORM\Column(type="datetime_immutable")
      */
-    private ?DateTimeInterface  $endDate = null;
+    private ?DateTimeInterface $endDate = null;
 
     public function getId(): ?int
     {
@@ -56,36 +56,30 @@ class Event
         $this->name = $name;
     }
 
-    public function getStartDate(): ?string
+    public function getStartDate(): ?DateTimeInterface
     {
-        if (!isset($this->startDate)) {
-            return null;
-        }
-
         return $this->startDate;
     }
 
-    public function setStartDate($startDate): self
+    public function setStartDate(?string $startDate): self
     {
-        if ($this->startDate?->format('d-m-Y') !== $startDate?->format('d-m-Y')) {
+        $startDate = DateTimeImmutable::createFromFormat('Y-m-d', $startDate);
+        if ($startDate and ($this->startDate?->format('d-m-Y') !== $startDate->format('d-m-Y'))) {
             $this->startDate = $startDate;
         }
 
         return $this;
     }
 
-    public function getEndDate(): ?string
+    public function getEndDate(): ?DateTimeInterface
     {
-        if (!isset($this->endDate)) {
-            return null;
-        }
-
         return $this->endDate;
     }
 
-    public function setEndDate($endDate): self
+    public function setEndDate(?string $endDate): self
     {
-        if ($this->endDate?->format('d-m-Y') !== $endDate?->format('d-m-Y')) {
+        $endDate = DateTimeImmutable::createFromFormat('Y-m-d', $endDate);
+        if ($endDate and ($this->endDate?->format('d-m-Y') !== $endDate->format('d-m-Y'))) {
             $this->endDate = $endDate;
         }
 

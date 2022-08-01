@@ -39,6 +39,7 @@ class EventAdmin extends Admin
             ->addListAdapters(['table'])
             ->setAddView(static::EVENT_ADD_FORM_VIEW)
             ->setEditView(static::EVENT_EDIT_FORM_VIEW)
+            ->setTitle('app.events_list')
             ->addToolbarActions([new ToolbarAction('sulu_admin.add'), new ToolbarAction('sulu_admin.delete')]);
 
         $viewCollection->add($listView);
@@ -52,7 +53,7 @@ class EventAdmin extends Admin
         $addDetailsFormView = $this->viewBuilderFactory->createFormViewBuilder(static::EVENT_ADD_FORM_VIEW . '.details', '/details')
             ->setResourceKey(Event::RESOURCE_KEY)
             ->setFormKey(static::EVENT_FORM_KEY)
-            ->setTabTitle('sulu_admin.details')
+            ->setTabTitle('app.event_add_form')
             ->setEditView(static::EVENT_EDIT_FORM_VIEW)
             ->addToolbarActions([new ToolbarAction('sulu_admin.save'), new ToolbarAction('sulu_admin.delete')])
             ->setParent(static::EVENT_ADD_FORM_VIEW);
@@ -68,7 +69,7 @@ class EventAdmin extends Admin
         $editDetailsFormView = $this->viewBuilderFactory->createFormViewBuilder(static::EVENT_EDIT_FORM_VIEW . '.details', '/details')
             ->setResourceKey(Event::RESOURCE_KEY)
             ->setFormKey(static::EVENT_FORM_KEY)
-            ->setTabTitle('sulu_admin.details')
+            ->setTabTitle('app.event_edit_form')
             ->addToolbarActions([new ToolbarAction('sulu_admin.save'), new ToolbarAction('sulu_admin.delete')])
             ->setParent(static::EVENT_EDIT_FORM_VIEW);
 
