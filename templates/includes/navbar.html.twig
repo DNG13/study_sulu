@@ -1,0 +1,36 @@
+<nav>
+    <a href="{{ sulu_content_root_path() }}">
+        <img src="{{ asset('website/images/logo.svg') }}" alt="Sulu"/>
+    </a>
+    <ul>
+        <li>
+            <a href="{{ sulu_content_root_path() }}">Homepage</a>
+        </li>
+
+        {% for item in sulu_navigation_root_flat('main', 1, true) %}
+            {% set itemUrl = sulu_content_path(item.url) %}
+            <li>
+                <a href="{{ itemUrl }}"
+                   title="{{ item.title }}"
+                        {# open external links as target blank and set noopener #}
+                        {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}
+                   class="{{ app.request.uri starts with itemUrl ? 'active' : '' }}">
+                    {# fallback to content title when excerpt title not set #}
+                    {{ item.excerpt.title|default(item.title) }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul>
+        {% for localization in localizations %}
+            <li>
+                <a href="{{ localization.url }}"
+                   title="{{ localization.locale }}"
+                   class="{{ localization.locale == app.request.locale ? 'active' : '' }}"
+                >
+                    {{ localization.locale|upper }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
