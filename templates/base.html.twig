@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale|split('_')[0] }}">
     <head>
+        {# @see https://docs.sulu.io/en/2.5/reference/twig-extensions/functions/sulu_snippet_load_by_area.html #}
+        {# do not work #}
+        {% set webspaceSettings = sulu_snippet_load_by_area('webspace_settings') %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,16 +41,9 @@
                         {% block content %}{% endblock %}
                     </section>
                 </main>
-
                 <footer>
-                    {% for item in sulu_navigation_root_tree('footer') %}
-                        <li>
-                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
-                               title="{{ item.title }}">{{ item.title }}</a>
-                        </li>
-                    {% endfor %}
                     {% block footer %}
-                        <p>Copyright Study Sulu {{ 'now'|date('Y') }} </p>
+                        {% include 'includes/footer.html.twig' %}
                     {% endblock %}
                 </footer>
 

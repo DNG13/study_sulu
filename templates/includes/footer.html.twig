@@ -1,0 +1,88 @@
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="footer__main">
+                <div class="grid grid--reverse">
+                    <div class="grid__item width-6 width-tablet-12">
+                        <h4 class="footer__title">{{ 'connect_with_us'|trans }}</h4>
+                        <div class="footer__newsletter">
+                            <p>{{ 'sign_up_for_newsletter'|trans }}</p>
+
+                            <form method="post" class="footer__newsletter-form">
+                                <label class="footer__newsletter-input-label">
+                                    <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
+                                </label>
+
+                                <button type="submit" class="button footer__newsletter-button">{{ 'sign_up'|trans }}</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="grid__item width-6 width-tablet-12">
+                        <div class="grid">
+                            <div class="grid__item width-6">
+                                <h4 class="footer__title">{{ 'contact'|trans }}</h4>
+
+                                {% set account = webspaceSettings.content.account.entity|default %}
+                                {% if account %}
+                                    {% set address = account.accountAddresses[0].address %}
+
+                                    <div class="footer__contact">
+                                        <p>{{ address.street ~ ' ' ~ address.number }},<br/>
+                                            {{ address.zip ~ ' ' ~ address.city }},<br/>
+                                            {# {{ country(address.countryCode) }}#}
+                                        </p>
+                                        <a href="tel:{{ account.mainPhone }}" class="footer__contact-link">{{ account.mainPhone }}</a>
+                                        <a href="mailto:{{ account.mainEmail }}" class="footer__contact-link">{{ account.mainEmail }}</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="grid__item width-6">
+                                <h4 class="footer__title">{{ 'quick_links'|trans }}</h4>
+
+                                <div class="footer__quicklinks">
+                                    {% for item in sulu_navigation_root_flat('footer', 1, true) %}
+                                        <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
+                                            {# fallback to content title when excerpt title not set #}
+                                            {{ item.excerpt.title|default(item.title) }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__imprint">
+                <div class="footer__imprint-item footer__imprint-item--copyright">
+                    &copy; Copyright Study {{ 'now'|date('Y') }}
+                </div>
+
+                <div class="footer__imprint-item">
+                    <a href="#" class="footer__imprint-link">{{ 'privacy_policy'|trans }}</a>
+                </div>
+
+                <div class="footer__imprint-item">
+                    <a href="#" class="footer__imprint-link">{{ 'cookie_policy'|trans }}</a>
+                </div>
+
+                <div class="footer__imprint-item">
+                    <a href="#" class="footer__imprint-link">{{ 'safety_recalls'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-footer">
+        <div class="container">
+            <div class="social-footer__links">
+                <a href="#" class="social-footer__link icon icon--facebook"></a>
+                <a href="#" class="social-footer__link icon icon--instagram"></a>
+                <a href="#" class="social-footer__link icon icon--youtube"></a>
+                <a href="#" class="social-footer__link icon icon--spotify"></a>
+            </div>
+        </div>
+    </div>
+</footer>
