@@ -26,11 +26,10 @@
                                 {% set account = webspaceSettings.content.account.entity|default %}
                                 {% if account %}
                                     {% set address = account.accountAddresses[0].address %}
-
                                     <div class="footer__contact">
                                         <p>{{ address.street ~ ' ' ~ address.number }},<br/>
                                             {{ address.zip ~ ' ' ~ address.city }},<br/>
-                                            {# {{ country(address.countryCode) }}#}
+                                            {{ country(address.countryCode) }}
                                         </p>
                                         <a href="tel:{{ account.mainPhone }}" class="footer__contact-link">{{ account.mainPhone }}</a>
                                         <a href="mailto:{{ account.mainEmail }}" class="footer__contact-link">{{ account.mainEmail }}</a>

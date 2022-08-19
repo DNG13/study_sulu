@@ -21,4 +21,13 @@
         <scale x="1921" y="983"/>
     </format>
 
+    <format key="600x400">
+        <meta>
+            <title lang="en">Home page process Smart content Image</title>
+            <title lang="uk">Smart content Зображення процесів домашньої сторінки</title>
+        </meta>
+
+        <scale x="600" y="400"/>
+    </format>
+
 </formats>

@@ -2,14 +2,10 @@
     <a href="{{ sulu_content_root_path() }}">
         <img src="{{ asset('website/images/logo.svg') }}" alt="Sulu"/>
     </a>
-    <ul>
-        <li>
-            <a href="{{ sulu_content_root_path() }}">Homepage</a>
-        </li>
-
+    <div>
         {% for item in sulu_navigation_root_flat('main', 1, true) %}
             {% set itemUrl = sulu_content_path(item.url) %}
-            <li>
+            <div>
                 <a href="{{ itemUrl }}"
                    title="{{ item.title }}"
                         {# open external links as target blank and set noopener #}
@@ -18,19 +14,19 @@
                     {# fallback to content title when excerpt title not set #}
                     {{ item.excerpt.title|default(item.title) }}
                 </a>
-            </li>
+            </div>
         {% endfor %}
-    </ul>
-    <ul>
+    </div>
+    <div>
         {% for localization in localizations %}
-            <li>
+            <div>
                 <a href="{{ localization.url }}"
                    title="{{ localization.locale }}"
                    class="{{ localization.locale == app.request.locale ? 'active' : '' }}"
                 >
                     {{ localization.locale|upper }}
                 </a>
-            </li>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </nav>

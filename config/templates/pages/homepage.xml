@@ -38,6 +38,21 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
+        <property name="elements" type="smart_content">
+            <meta>
+                <title lang="en">Elements</title>
+                <title lang="uk">Elements</title>
+            </meta>
+
+            <params>
+                <param name="properties" type="collection">
+                    <param name="title" value="title"/>
+                    <param name="excerptImages" value="excerpt.images"/>
+                    <param name="url" value="url"/>
+                </param>
+            </params>
+        </property>
+
         <property name="url" type="resource_locator" mandatory="true">
             <meta>
                 <title lang="en">Resourcelocator</title>
